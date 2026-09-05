@@ -1,0 +1,6 @@
+{
+  "name": "Dashboard de Ventas Chaide",
+  "description": "Dashboard interactivo y analítica de ventas multirregional con cruce de métricas, mapa comparativo de ciudades, proyecciones y notificaciones push.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
