@@ -143,7 +143,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800 flex flex-col font-sans selection:bg-[#002B66] selection:text-white">
       
       {/* 1. Corporate Header */}
       <Header
@@ -180,14 +180,14 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 space-y-5">
         
         {/* Module Switcher Tabs */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-1 border-b border-slate-800">
-          <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-1 border-b border-slate-200">
+          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 text-xs shadow-2xs">
             <button
               onClick={() => setActiveTab('all')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                 activeTab === 'all'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                  ? 'bg-[#002B66] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-[#002B66] hover:bg-sky-50'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -196,10 +196,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('cross')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                 activeTab === 'cross'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                  ? 'bg-[#002B66] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-[#002B66] hover:bg-sky-50'
               }`}
             >
               <BarChart3 className="w-3.5 h-3.5" />
@@ -208,10 +208,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('map')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                 activeTab === 'map'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                  ? 'bg-[#002B66] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-[#002B66] hover:bg-sky-50'
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
@@ -220,10 +220,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('projections')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                 activeTab === 'projections'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                  ? 'bg-[#002B66] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-[#002B66] hover:bg-sky-50'
               }`}
             >
               <LineChart className="w-3.5 h-3.5" />
@@ -231,12 +231,12 @@ export default function App() {
             </button>
           </div>
 
-          <div className="text-xs text-slate-400 hidden sm:flex items-center gap-2">
+          <div className="text-xs text-slate-500 hidden sm:flex items-center gap-2">
             <span>Filtro temporal activo:</span>
-            <span className="font-mono text-slate-200 font-semibold">
+            <span className="font-mono text-[#002B66] font-bold">
               {filters.years.join(', ')}
             </span>
-            <span>• Moneda: <strong className="text-slate-200">USD</strong></span>
+            <span>• Moneda: <strong className="text-slate-800">USD</strong></span>
           </div>
         </div>
 
@@ -281,14 +281,14 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-800 bg-slate-950 py-3 text-xs text-slate-500">
+      <footer className="mt-auto border-t border-slate-200 bg-white py-3.5 text-xs text-slate-500 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            Chaide y Chaide S.A. • Centro de Control Analítico de Ventas Multirregional
+          <div className="font-medium text-slate-600">
+            <strong className="text-[#002B66]">Chaide y Chaide S.A.</strong> • Centro de Control Analítico de Ventas Multirregional
           </div>
-          <div className="flex items-center gap-4 text-[11px]">
+          <div className="flex items-center gap-4 text-[11px] text-slate-500">
             <span>Cobertura Nacional: Sierra, Costa, Austro, Oriente</span>
-            <span>Motor Predictivo v2.4</span>
+            <span className="font-semibold text-[#002B66]">Plataforma Institucional Chaide v2.4</span>
           </div>
         </div>
       </footer>

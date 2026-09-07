@@ -67,24 +67,24 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     (filters.searchTerm ? 1 : 0);
 
   return (
-    <div className="bg-slate-900 border-b border-slate-800 text-slate-200 py-3 px-4 sm:px-6">
+    <div className="bg-white border-b border-sky-100 text-slate-700 py-3 px-4 sm:px-6 shadow-[0_1px_3px_rgba(0,43,102,0.03)]">
       <div className="max-w-7xl mx-auto flex flex-col gap-3">
         {/* Top filter row */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           
           {/* Years selection */}
-          <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-400 px-2 uppercase tracking-wider">Año:</span>
+          <div className="flex items-center gap-1.5 bg-sky-50/70 p-1 rounded-lg border border-sky-100">
+            <span className="text-[11px] font-bold text-[#002B66] px-2 uppercase tracking-wider">Año:</span>
             {availableYears.map(year => {
               const active = filters.years.includes(year);
               return (
                 <button
                   key={year}
                   onClick={() => toggleYear(year)}
-                  className={`px-2.5 py-1 text-xs font-semibold rounded transition-colors ${
+                  className={`px-2.5 py-1 text-xs font-bold rounded transition-all cursor-pointer ${
                     active
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                      ? 'bg-[#002B66] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
                   }`}
                 >
                   {year}
@@ -94,8 +94,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           </div>
 
           {/* Metric Selector Pills */}
-          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-400 px-2 uppercase tracking-wider">Métrica:</span>
+          <div className="flex items-center gap-1 bg-sky-50/70 p-1 rounded-lg border border-sky-100">
+            <span className="text-[11px] font-bold text-[#002B66] px-2 uppercase tracking-wider">Métrica:</span>
             {(
               [
                 { key: 'salesAmount', label: '$ Ventas' },
@@ -109,10 +109,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 <button
                   key={m.key}
                   onClick={() => handleMetricChange(m.key)}
-                  className={`px-2.5 py-1 text-xs font-medium rounded transition-colors ${
+                  className={`px-2.5 py-1 text-xs font-semibold rounded transition-all cursor-pointer ${
                     active
-                      ? 'bg-slate-700 text-white font-semibold'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                      ? 'bg-[#0056B3] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
                   }`}
                 >
                   {m.label}
@@ -130,18 +130,18 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 value={filters.searchTerm}
                 onChange={e => onFilterChange(prev => ({ ...prev, searchTerm: e.target.value }))}
                 placeholder="Buscar producto o ciudad..."
-                className="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-950 text-slate-200 rounded-lg border border-slate-800 focus:outline-none focus:border-blue-500 placeholder-slate-500"
+                className="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50/80 text-slate-800 rounded-lg border border-slate-200 focus:outline-none focus:border-[#002B66] focus:bg-white placeholder-slate-400 transition-colors"
               />
             </div>
 
             {activeFiltersCount > 0 && (
               <button
                 onClick={onResetFilters}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs border border-slate-700 transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium border border-slate-200 transition-colors whitespace-nowrap cursor-pointer"
                 title="Limpiar filtros seleccionados"
               >
                 <RotateCcw className="w-3 h-3" />
-                <span>Reset ({activeFiltersCount})</span>
+                <span>Limpiar ({activeFiltersCount})</span>
               </button>
             )}
           </div>
@@ -149,11 +149,11 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
 
         {/* Secondary filter chips row */}
-        <div className="flex flex-wrap items-center gap-3 pt-1 border-t border-slate-800/60 text-xs">
+        <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-100 text-xs">
           
           {/* Regions */}
           <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 font-medium">Región:</span>
+            <span className="text-slate-500 font-semibold">Región:</span>
             <div className="flex items-center gap-1">
               {REGIONS.map(reg => {
                 const active = filters.regions.length === 0 || filters.regions.includes(reg);
@@ -161,10 +161,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   <button
                     key={reg}
                     onClick={() => toggleRegion(reg)}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium border transition-colors ${
+                    className={`px-2 py-0.5 rounded text-[11px] font-semibold border transition-all cursor-pointer ${
                       active
-                        ? 'bg-blue-950/60 text-blue-300 border-blue-800/80'
-                        : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-300'
+                        ? 'bg-sky-100 text-[#002B66] border-sky-200 shadow-2xs'
+                        : 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700 hover:bg-white'
                     }`}
                   >
                     {reg}
@@ -176,13 +176,13 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
           {/* Product Category Dropdown */}
           <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 font-medium">Línea:</span>
+            <span className="text-slate-500 font-semibold">Línea Chaide:</span>
             <select
               value={filters.categories.length === 1 ? filters.categories[0] : 'ALL'}
               onChange={handleCategorySelect}
-              className="bg-slate-950 border border-slate-800 text-slate-200 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-500"
+              className="bg-slate-50 border border-slate-200 text-slate-700 rounded px-2 py-1 text-xs focus:outline-none focus:border-[#002B66] focus:bg-white font-medium"
             >
-              <option value="ALL">Todas las Líneas Chaide</option>
+              <option value="ALL">Todas las Líneas de Producto</option>
               {PRODUCTS_CATALOG.map(c => (
                 <option key={c.category} value={c.category}>
                   {c.category}
@@ -193,7 +193,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
           {/* Channel selector */}
           <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 font-medium">Canal:</span>
+            <span className="text-slate-500 font-semibold">Canal:</span>
             <div className="flex items-center gap-1">
               {CHANNELS.map(ch => {
                 const active = filters.channels.length === 0 || filters.channels.includes(ch);
@@ -206,10 +206,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                     key={ch}
                     onClick={() => toggleChannel(ch)}
                     title={ch}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium border transition-colors ${
+                    className={`px-2 py-0.5 rounded text-[11px] font-semibold border transition-all cursor-pointer ${
                       active
-                        ? 'bg-emerald-950/60 text-emerald-300 border-emerald-800/80'
-                        : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-300'
+                        ? 'bg-blue-50 text-[#0056B3] border-blue-200 shadow-2xs'
+                        : 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700 hover:bg-white'
                     }`}
                   >
                     {shortLabel}

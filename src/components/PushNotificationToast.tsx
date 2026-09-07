@@ -18,37 +18,37 @@ export const PushNotificationToast: React.FC<PushNotificationToastProps> = ({
   return (
     <div className="fixed bottom-5 right-5 z-50 max-w-sm w-full animate-bounce-short">
       <div
-        className={`p-4 rounded-xl border shadow-2xl backdrop-blur-md flex items-start gap-3 ${
+        className={`p-4 rounded-xl border shadow-2xl backdrop-blur-md flex items-start gap-3 bg-white/95 ${
           alert.level === 'critical'
-            ? 'bg-slate-900/95 border-rose-600/80 text-white'
+            ? 'border-rose-300 ring-4 ring-rose-100/60'
             : alert.level === 'positive'
-            ? 'bg-slate-900/95 border-emerald-600/80 text-white'
-            : 'bg-slate-900/95 border-amber-600/80 text-white'
+            ? 'border-emerald-300 ring-4 ring-emerald-100/60'
+            : 'border-amber-300 ring-4 ring-amber-100/60'
         }`}
       >
-        <div className="p-1 rounded-full bg-slate-800 shrink-0">
+        <div className="p-1.5 rounded-full bg-slate-50 border border-slate-200 shrink-0">
           {alert.level === 'critical' ? (
-            <AlertCircle className="w-4 h-4 text-rose-400" />
+            <AlertCircle className="w-4 h-4 text-rose-600" />
           ) : alert.level === 'positive' ? (
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           ) : (
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
+            <AlertTriangle className="w-4 h-4 text-amber-600" />
           )}
         </div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold tracking-wider text-rose-400 font-mono">
+            <span className="text-[10px] uppercase font-extrabold tracking-wider text-rose-600 font-mono">
               Notificación Push Crítica
             </span>
-            <span className="text-[10px] text-slate-400 font-mono">{alert.timestamp}</span>
+            <span className="text-[10px] text-slate-500 font-mono">{alert.timestamp}</span>
           </div>
 
-          <h4 className="text-xs font-bold text-white mt-0.5 truncate">{alert.title}</h4>
-          <p className="text-[11px] text-slate-300 mt-1 line-clamp-2 leading-relaxed">{alert.message}</p>
+          <h4 className="text-xs font-bold text-slate-900 mt-0.5 truncate">{alert.title}</h4>
+          <p className="text-[11px] text-slate-600 mt-1 line-clamp-2 leading-relaxed">{alert.message}</p>
 
           <div className="mt-2.5 flex items-center justify-between">
-            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-slate-200">
+            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-50 border border-slate-200 font-mono text-slate-700 font-semibold">
               {alert.entityName}: {alert.metricValue}
             </span>
             <button
@@ -56,7 +56,7 @@ export const PushNotificationToast: React.FC<PushNotificationToastProps> = ({
                 onDismiss();
                 onOpenCenter();
               }}
-              className="text-xs text-blue-400 hover:text-blue-300 font-semibold hover:underline"
+              className="text-xs text-[#002B66] hover:text-[#0056B3] font-bold hover:underline cursor-pointer"
             >
               Ver en Centro →
             </button>
@@ -65,7 +65,7 @@ export const PushNotificationToast: React.FC<PushNotificationToastProps> = ({
 
         <button
           onClick={onDismiss}
-          className="text-slate-400 hover:text-white p-0.5 rounded transition-colors shrink-0"
+          className="text-slate-400 hover:text-slate-700 p-0.5 rounded transition-colors shrink-0 cursor-pointer"
         >
           <X className="w-3.5 h-3.5" />
         </button>

@@ -123,33 +123,33 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
   const deltaSales = statA && statB ? statA.currentSales - statB.currentSales : 0;
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5 shadow-sm">
+    <div className="bg-white border border-slate-200/90 rounded-xl p-4 sm:p-5 shadow-[0_2px_8px_rgba(0,43,102,0.04)]">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-base font-bold text-white font-['Outfit']">
-              Mapa Comercial del Ecuador & Cruce de Ciudades
+            <h2 className="text-base font-bold text-[#002B66] font-['Outfit']">
+              Mapa Comercial del Ecuador & Cruce de Plazas Chaide
             </h2>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-800 font-semibold">
+            <span className="text-[11px] px-2 py-0.5 rounded-full bg-sky-100 text-[#002B66] border border-sky-200 font-bold">
               Crecimiento vs Rezago
             </span>
           </div>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Compara el rendimiento de dos plazas comerciales simultáneamente con remarcado geográfico
+          <p className="text-xs text-slate-500 mt-0.5">
+            Compara el desempeño de dos plazas comerciales simultáneamente con remarcado geográfico interactivo
           </p>
         </div>
 
         {/* City Selectors for Head-to-Head */}
-        <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-lg border border-slate-800 text-xs">
+        <div className="flex items-center gap-2 bg-sky-50/70 p-1.5 rounded-lg border border-sky-100 text-xs">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-            <span className="text-slate-400 font-medium">Plaza A:</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#002B66]"></span>
+            <span className="text-slate-600 font-semibold">Plaza A:</span>
             <select
               value={cityA}
               onChange={e => setCityA(e.target.value)}
-              className="bg-slate-900 text-white font-semibold rounded px-2 py-1 border border-slate-700 focus:outline-none"
+              className="bg-white text-slate-800 font-bold rounded px-2.5 py-1 border border-slate-200 focus:outline-none focus:border-[#002B66] shadow-2xs"
             >
               {CITIES_METADATA.map(c => (
                 <option key={c.name} value={c.name}>
@@ -159,15 +159,15 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
             </select>
           </div>
 
-          <span className="text-slate-500 font-bold px-1">VS</span>
+          <span className="text-[#002B66] font-extrabold px-1">VS</span>
 
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-            <span className="text-slate-400 font-medium">Plaza B:</span>
+            <span className="text-slate-600 font-semibold">Plaza B:</span>
             <select
               value={cityB}
               onChange={e => setCityB(e.target.value)}
-              className="bg-slate-900 text-white font-semibold rounded px-2 py-1 border border-slate-700 focus:outline-none"
+              className="bg-white text-slate-800 font-bold rounded px-2.5 py-1 border border-slate-200 focus:outline-none focus:border-[#002B66] shadow-2xs"
             >
               {CITIES_METADATA.map(c => (
                 <option key={c.name} value={c.name}>
@@ -183,30 +183,30 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-4">
         
         {/* Map Container (7 cols) */}
-        <div className="lg:col-span-7 bg-slate-950 rounded-xl p-3 border border-slate-800 relative flex flex-col items-center justify-center min-h-[420px]">
+        <div className="lg:col-span-7 bg-[#F4F8FD] rounded-xl p-3 border border-sky-100 relative flex flex-col items-center justify-center min-h-[420px] shadow-2xs">
           
           {/* Map Legend */}
-          <div className="absolute top-3 left-3 bg-slate-900/90 border border-slate-800 rounded-lg p-2.5 text-[11px] text-slate-300 z-10 backdrop-blur-sm shadow-md">
-            <div className="font-semibold text-slate-200 mb-1.5">Semáforo de Desempeño:</div>
+          <div className="absolute top-3 left-3 bg-white/95 border border-sky-100 rounded-lg p-2.5 text-[11px] text-slate-700 z-10 backdrop-blur-sm shadow-sm">
+            <div className="font-bold text-[#002B66] mb-1.5">Semáforo de Desempeño:</div>
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50"></span>
-                <span>Crecimiento Alto (+8% o más)</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-emerald-200"></span>
+                <span className="font-medium text-slate-700">Crecimiento Alto (+8% o más)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
-                <span>Crecimiento Estable (0% a +7%)</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-sky-500 ring-2 ring-sky-200"></span>
+                <span className="font-medium text-slate-700">Crecimiento Estable (0% a +7%)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-sm shadow-rose-500/50"></span>
-                <span>Contracción / Rezago (Menor a 0%)</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500 ring-2 ring-rose-200"></span>
+                <span className="font-medium text-slate-700">Contracción / Rezago (&lt; 0%)</span>
               </div>
             </div>
           </div>
 
           {/* Region Label Pill */}
-          <div className="absolute bottom-3 left-3 text-[11px] text-slate-500 flex items-center gap-1.5">
-            <Compass className="w-3.5 h-3.5" />
+          <div className="absolute bottom-3 left-3 text-[11px] text-slate-500 flex items-center gap-1.5 bg-white/80 px-2 py-1 rounded border border-slate-200">
+            <Compass className="w-3.5 h-3.5 text-[#002B66]" />
             <span>Haz clic en cualquier nodo para fijarlo en la comparativa</span>
           </div>
 
@@ -218,48 +218,48 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
             {/* Background subtle grid */}
             <defs>
               <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" strokeWidth="0.5" />
+                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8f0" strokeWidth="0.6" />
               </pattern>
               <linearGradient id="vectorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="#002B66" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.9" />
               </linearGradient>
             </defs>
 
-            <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3" />
+            <rect width="100%" height="100%" fill="url(#grid)" opacity="0.6" />
 
             {/* Ecuador Geography Silhouette: Costa (West), Sierra (Spine), Oriente (East) */}
             {/* Oriente Region polygon */}
             <path
               d="M 340 50 L 460 70 L 510 120 L 490 220 L 440 280 L 390 320 L 340 330 L 325 210 Z"
-              fill="#064e3b"
-              fillOpacity="0.25"
-              stroke="#047857"
-              strokeWidth="1"
+              fill="#e6f7ec"
+              fillOpacity="0.8"
+              stroke="#059669"
+              strokeWidth="1.2"
               strokeDasharray="2 2"
             />
             {/* Sierra Region polygon */}
             <path
               d="M 285 45 L 340 50 L 325 210 L 340 330 L 310 440 L 270 450 L 260 380 L 280 260 L 270 140 Z"
-              fill="#1e3a8a"
-              fillOpacity="0.30"
-              stroke="#2563eb"
-              strokeWidth="1.2"
+              fill="#e0edfd"
+              fillOpacity="0.8"
+              stroke="#0056b3"
+              strokeWidth="1.4"
             />
             {/* Costa Region polygon */}
             <path
               d="M 210 40 L 285 45 L 270 140 L 280 260 L 260 380 L 210 420 L 195 380 L 120 330 L 130 290 L 160 210 L 180 130 L 190 70 Z"
-              fill="#0f172a"
-              fillOpacity="0.6"
-              stroke="#475569"
-              strokeWidth="1.2"
+              fill="#f1f5f9"
+              fillOpacity="0.9"
+              stroke="#64748b"
+              strokeWidth="1.4"
             />
 
             {/* Region Labels */}
-            <text x="170" y="340" fill="#64748b" fontSize="11" fontWeight="700" opacity="0.6">COSTA</text>
-            <text x="295" y="105" fill="#64748b" fontSize="11" fontWeight="700" opacity="0.6">SIERRA</text>
-            <text x="280" y="345" fill="#64748b" fontSize="11" fontWeight="700" opacity="0.6">AUSTRO</text>
-            <text x="410" y="210" fill="#64748b" fontSize="11" fontWeight="700" opacity="0.6">ORIENTE</text>
+            <text x="170" y="340" fill="#475569" fontSize="11" fontWeight="800" opacity="0.7">COSTA</text>
+            <text x="295" y="105" fill="#002B66" fontSize="11" fontWeight="800" opacity="0.7">SIERRA</text>
+            <text x="280" y="345" fill="#002B66" fontSize="11" fontWeight="800" opacity="0.7">AUSTRO</text>
+            <text x="410" y="210" fill="#065f46" fontSize="11" fontWeight="800" opacity="0.7">ORIENTE</text>
 
             {/* Animated Vector between City A and City B */}
             {metaA && metaB && (
@@ -272,22 +272,21 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                   stroke="url(#vectorGrad)"
                   strokeWidth="2.5"
                   strokeDasharray="5 4"
-                  className="animate-pulse"
                 />
                 {/* Midpoint Delta growth badge */}
                 <circle
                   cx={(metaA.svgX + metaB.svgX) / 2}
                   cy={(metaA.svgY + metaB.svgY) / 2}
                   r="14"
-                  fill="#0f172a"
-                  stroke="#3b82f6"
-                  strokeWidth="1.5"
+                  fill="#ffffff"
+                  stroke="#002B66"
+                  strokeWidth="2"
                 />
                 <text
                   x={(metaA.svgX + metaB.svgX) / 2}
                   y={(metaA.svgY + metaB.svgY) / 2 + 3.5}
                   textAnchor="middle"
-                  fill="#f8fafc"
+                  fill="#002B66"
                   fontSize="9"
                   fontWeight="bold"
                 >
@@ -308,7 +307,7 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
               const isModerate = stat.yoyGrowth >= 0 && stat.yoyGrowth < 8;
               const isDecline = stat.yoyGrowth < 0;
 
-              const nodeColor = isGrowth ? '#10b981' : isModerate ? '#38bdf8' : '#f43f5e';
+              const nodeColor = isGrowth ? '#10b981' : isModerate ? '#0284c7' : '#e11d48';
               const radius = 5 + Math.min(10, Math.max(3, (stat.currentSales / maxCitySales) * 12));
 
               return (
@@ -318,7 +317,6 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                   onMouseEnter={() => setHoveredCity(city.name)}
                   onMouseLeave={() => setHoveredCity(null)}
                   onClick={() => {
-                    // Smart cycle: set A if not set, or set B
                     if (city.name !== cityA) {
                       setCityB(city.name);
                     }
@@ -331,9 +329,9 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                       cy={city.svgY}
                       r={radius + 7}
                       fill="none"
-                      stroke="#3b82f6"
+                      stroke="#002B66"
                       strokeWidth="2.5"
-                      className="animate-ping opacity-75"
+                      className="animate-ping opacity-60"
                     />
                   )}
                   {isSelectedB && (
@@ -344,7 +342,7 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                       fill="none"
                       stroke="#f59e0b"
                       strokeWidth="2.5"
-                      className="animate-ping opacity-75"
+                      className="animate-ping opacity-60"
                     />
                   )}
 
@@ -354,8 +352,8 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                     cy={city.svgY}
                     r={radius}
                     fill={nodeColor}
-                    stroke={isSelectedA ? '#3b82f6' : isSelectedB ? '#f59e0b' : '#0f172a'}
-                    strokeWidth={isSelectedA || isSelectedB ? 3 : 1.5}
+                    stroke="#ffffff"
+                    strokeWidth="2"
                   />
 
                   {/* City Label */}
@@ -363,9 +361,9 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                     x={city.svgX}
                     y={city.svgY - radius - 4}
                     textAnchor="middle"
-                    fill={isSelectedA ? '#60a5fa' : isSelectedB ? '#fbbf24' : isHovered ? '#ffffff' : '#cbd5e1'}
+                    fill={isSelectedA ? '#002B66' : isSelectedB ? '#b45309' : '#1e293b'}
                     fontSize={city.populationTier === 'Metrópoli' ? '12' : '10'}
-                    fontWeight={isSelectedA || isSelectedB || city.populationTier === 'Metrópoli' ? '700' : '500'}
+                    fontWeight={isSelectedA || isSelectedB || city.populationTier === 'Metrópoli' ? '800' : '600'}
                   >
                     {city.name}
                   </text>
@@ -379,9 +377,9 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
                         width="44"
                         height="16"
                         rx="4"
-                        fill="#0f172a"
+                        fill="#ffffff"
                         stroke={nodeColor}
-                        strokeWidth="1"
+                        strokeWidth="1.5"
                       />
                       <text
                         x={city.svgX}
@@ -405,69 +403,69 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
         <div className="lg:col-span-5 flex flex-col gap-3">
           
           {/* Summary Comparison Header Card */}
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-            <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-              <span className="font-semibold uppercase tracking-wider">Cruce Directo de Plazas</span>
-              <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
+          <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
+              <span className="font-bold uppercase tracking-wider text-[#002B66]">Cruce Directo de Plazas</span>
+              <span className="px-2 py-0.5 rounded bg-white text-slate-700 font-semibold border border-slate-200">
                 {statA.region} vs {statB.region}
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+            <div className="grid grid-cols-2 gap-3 pb-3 border-b border-slate-200">
               {/* City A Header */}
-              <div className="p-2.5 rounded-lg bg-blue-950/40 border border-blue-800/60">
+              <div className="p-2.5 rounded-lg bg-blue-50/80 border border-blue-200">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                  <span className="font-bold text-white text-sm font-['Outfit']">{cityA}</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#002B66]"></span>
+                  <span className="font-extrabold text-[#002B66] text-sm font-['Outfit']">{cityA}</span>
                 </div>
                 <div className="mt-1 flex items-center gap-1 text-xs">
                   <span
-                    className={`font-semibold ${
-                      statA.yoyGrowth >= 0 ? 'text-emerald-400' : 'text-rose-400'
+                    className={`font-bold ${
+                      statA.yoyGrowth >= 0 ? 'text-emerald-700' : 'text-rose-700'
                     }`}
                   >
                     {statA.yoyGrowth >= 0 ? '+' : ''}{statA.yoyGrowth}% YoY
                   </span>
-                  <span className="text-slate-400 text-[10px]">
-                    ({statA.yoyGrowth >= 0 ? 'En Crecimiento' : 'En Rezago'})
+                  <span className="text-slate-500 text-[10px]">
+                    ({statA.yoyGrowth >= 0 ? 'Crecimiento' : 'Rezago'})
                   </span>
                 </div>
               </div>
 
               {/* City B Header */}
-              <div className="p-2.5 rounded-lg bg-amber-950/40 border border-amber-800/60">
+              <div className="p-2.5 rounded-lg bg-amber-50/80 border border-amber-200">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                  <span className="font-bold text-white text-sm font-['Outfit']">{cityB}</span>
+                  <span className="font-extrabold text-amber-900 text-sm font-['Outfit']">{cityB}</span>
                 </div>
                 <div className="mt-1 flex items-center gap-1 text-xs">
                   <span
-                    className={`font-semibold ${
-                      statB.yoyGrowth >= 0 ? 'text-emerald-400' : 'text-rose-400'
+                    className={`font-bold ${
+                      statB.yoyGrowth >= 0 ? 'text-emerald-700' : 'text-rose-700'
                     }`}
                   >
                     {statB.yoyGrowth >= 0 ? '+' : ''}{statB.yoyGrowth}% YoY
                   </span>
-                  <span className="text-slate-400 text-[10px]">
-                    ({statB.yoyGrowth >= 0 ? 'En Crecimiento' : 'En Rezago'})
+                  <span className="text-slate-500 text-[10px]">
+                    ({statB.yoyGrowth >= 0 ? 'Crecimiento' : 'Rezago'})
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Gap Statement */}
-            <div className="mt-3 p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs">
+            <div className="mt-3 p-2.5 rounded-lg bg-white border border-slate-200 text-xs shadow-2xs">
               <div className="flex items-center gap-2">
                 {deltaGrowth >= 0 ? (
-                  <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <TrendingUp className="w-4 h-4 text-emerald-600 shrink-0" />
                 ) : (
-                  <TrendingDown className="w-4 h-4 text-rose-400 shrink-0" />
+                  <TrendingDown className="w-4 h-4 text-rose-600 shrink-0" />
                 )}
                 <div>
-                  <span className="font-semibold text-white">
-                    {deltaGrowth >= 0 ? `${cityA} lidera el ritmo` : `${cityB} tiene mejor tracción`}
+                  <span className="font-bold text-slate-800">
+                    {deltaGrowth >= 0 ? `${cityA} lidera el ritmo` : `${cityB} tiene mayor tracción`}
                   </span>
-                  <span className="text-slate-400 block text-[11px]">
+                  <span className="text-slate-500 block text-[11px]">
                     Brecha de crecimiento de {Math.abs(deltaGrowth).toFixed(1)} pp y diferencia neta de {formatCurrency(Math.abs(deltaSales))}.
                   </span>
                 </div>
@@ -476,73 +474,73 @@ export const EcuadorMapComparative: React.FC<EcuadorMapComparativeProps> = ({
           </div>
 
           {/* Metric Comparison Table */}
-          <div className="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
-            <div className="p-3 bg-slate-900/60 border-b border-slate-800 text-xs font-semibold text-slate-300">
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
+            <div className="p-3 bg-sky-50/80 border-b border-sky-100 text-xs font-bold text-[#002B66]">
               Tabla Comparativa de Indicadores Clave
             </div>
 
-            <div className="divide-y divide-slate-800/60 text-xs">
+            <div className="divide-y divide-slate-100 text-xs">
               {/* Row 1: Net Sales */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Ventas Netas:</span>
-                <span className="text-right font-mono font-bold text-blue-300">{formatCurrency(statA.currentSales)}</span>
-                <span className="text-right font-mono font-bold text-amber-300">{formatCurrency(statB.currentSales)}</span>
+                <span className="text-slate-500 font-medium">Ventas Netas:</span>
+                <span className="text-right font-mono font-bold text-[#002B66]">{formatCurrency(statA.currentSales)}</span>
+                <span className="text-right font-mono font-bold text-amber-700">{formatCurrency(statB.currentSales)}</span>
               </div>
 
               {/* Row 2: Units */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Unidades Vendidas:</span>
-                <span className="text-right font-mono text-slate-200">{statA.units.toLocaleString()} uds</span>
-                <span className="text-right font-mono text-slate-200">{statB.units.toLocaleString()} uds</span>
+                <span className="text-slate-500 font-medium">Unidades:</span>
+                <span className="text-right font-mono font-medium text-slate-700">{statA.units.toLocaleString()} uds</span>
+                <span className="text-right font-mono font-medium text-slate-700">{statB.units.toLocaleString()} uds</span>
               </div>
 
               {/* Row 3: Fulfillment */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Cumplimiento Meta:</span>
-                <span className={`text-right font-mono font-semibold ${statA.fulfillment >= 100 ? 'text-emerald-400' : 'text-slate-200'}`}>
+                <span className="text-slate-500 font-medium">Cumplimiento:</span>
+                <span className={`text-right font-mono font-bold ${statA.fulfillment >= 100 ? 'text-emerald-700' : 'text-slate-700'}`}>
                   {statA.fulfillment}%
                 </span>
-                <span className={`text-right font-mono font-semibold ${statB.fulfillment >= 100 ? 'text-emerald-400' : 'text-slate-200'}`}>
+                <span className={`text-right font-mono font-bold ${statB.fulfillment >= 100 ? 'text-emerald-700' : 'text-slate-700'}`}>
                   {statB.fulfillment}%
                 </span>
               </div>
 
               {/* Row 4: Gross Margin */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Margen Bruto:</span>
-                <span className="text-right font-mono text-slate-200">{statA.margin}%</span>
-                <span className="text-right font-mono text-slate-200">{statB.margin}%</span>
+                <span className="text-slate-500 font-medium">Margen Bruto:</span>
+                <span className="text-right font-mono font-semibold text-slate-700">{statA.margin}%</span>
+                <span className="text-right font-mono font-semibold text-slate-700">{statB.margin}%</span>
               </div>
 
               {/* Row 5: Ticket */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Ticket Promedio:</span>
-                <span className="text-right font-mono text-slate-200">
+                <span className="text-slate-500 font-medium">Ticket Promedio:</span>
+                <span className="text-right font-mono font-semibold text-slate-700">
                   {formatCurrency(statA.units > 0 ? statA.currentSales / statA.units : 0)}
                 </span>
-                <span className="text-right font-mono text-slate-200">
+                <span className="text-right font-mono font-semibold text-slate-700">
                   {formatCurrency(statB.units > 0 ? statB.currentSales / statB.units : 0)}
                 </span>
               </div>
 
               {/* Row 6: Top Product */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Líder Producto:</span>
-                <span className="text-right text-[11px] text-blue-300 font-medium truncate" title={statA.topProduct}>
+                <span className="text-slate-500 font-medium">Líder Producto:</span>
+                <span className="text-right text-[11px] text-[#002B66] font-semibold truncate" title={statA.topProduct}>
                   {statA.topProduct.replace('Chaide', '').trim()}
                 </span>
-                <span className="text-right text-[11px] text-amber-300 font-medium truncate" title={statB.topProduct}>
+                <span className="text-right text-[11px] text-amber-700 font-semibold truncate" title={statB.topProduct}>
                   {statB.topProduct.replace('Chaide', '').trim()}
                 </span>
               </div>
 
               {/* Row 7: Top Channel */}
               <div className="p-2.5 grid grid-cols-3 items-center">
-                <span className="text-slate-400">Canal Principal:</span>
-                <span className="text-right text-[11px] text-slate-300 truncate" title={statA.topChannel}>
+                <span className="text-slate-500 font-medium">Canal Principal:</span>
+                <span className="text-right text-[11px] text-slate-600 font-medium truncate" title={statA.topChannel}>
                   {statA.topChannel.replace('Chaide', '').trim()}
                 </span>
-                <span className="text-right text-[11px] text-slate-300 truncate" title={statB.topChannel}>
+                <span className="text-right text-[11px] text-slate-600 font-medium truncate" title={statB.topChannel}>
                   {statB.topChannel.replace('Chaide', '').trim()}
                 </span>
               </div>
